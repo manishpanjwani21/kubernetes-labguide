@@ -145,16 +145,15 @@ You could also put the above command on a watch to observe the nodes getting rea
 watch kubectl get nodes
 ```
 
-## Configure Networking with Weave CNI Plugin
+## Configure Networking with ANTREA CNI Plugin
 
 Installing overlay network is necessary for the pods to communicate with each other across the hosts. It is necessary to do this before you try to deploy any applications to your cluster.
 
-There are various overlay networking drivers available for kubernetes. We are going to use **Weave Net**.
+There are various overlay networking drivers available for kubernetes. We are going to use **antrea Net**.
 
 ```
 
-export kubever=$(kubectl version | base64 | tr -d '\n')
-kubectl apply -f "https://cloud.weave.works/k8s/net?k8s-version=$kubever"
+kubectl apply -f https://raw.githubusercontent.com/antrea-io/antrea/main/build/yamls/antrea.yml
 ```
 
 
